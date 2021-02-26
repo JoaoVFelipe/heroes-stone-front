@@ -17,15 +17,33 @@ const CustomPagination = (props) => {
 
     useEffect(() => {
       const aux = [];
-      for (let number = 1; number <= total; number++) {
+      if(current > 1) {
+        aux.push(
+          <Pagination.Item key={0} active={false} onClick={() => setPage(current - 1)} >
+            Previous
+          </Pagination.Item>
+        );
+      }
+     
+      for (let number = (current - 2 > 0 ? current - 2 : 1); number <= (current + 2); number++) {
           aux.push(
             <Pagination.Item key={number} active={number === current} onClick={() => setPage(number)}>
               {number}
             </Pagination.Item>
           );
         }
+
+      if(current != total) {
+        aux.push(
+          <Pagination.Item key={total+1} active={false} onClick={() => setPage(current + 1)} >
+            Next
+          </Pagination.Item>
+        );
+      }
       setItems(aux);
-    }, [])
+
+      
+    }, [current])
     
 
     return (<Pagination>{items}</Pagination>)

@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './index.scss';
 
 const FavoriteButton = (props) => {
     // Credits to Robeen - http://robeen.io - I used his favorite button component to give some life to the card :)
@@ -7,7 +7,7 @@ const FavoriteButton = (props) => {
     return (
         <div id="main-content">
             <div>
-                <input type="checkbox" id="checkbox" checked={props.isFavorite}/>
+                <input type="checkbox" id="checkbox" defaultChecked={props.isFavorite}/>
                 <label for="checkbox">
                     <svg id="heart-svg" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg">
                         <g id="Group" fill="none" fill-rule="evenodd" transform="translate(467 392)">

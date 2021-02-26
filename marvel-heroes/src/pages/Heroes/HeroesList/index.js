@@ -60,13 +60,13 @@ const HeroesList = () => {
                     )})
                 }
             </div>
-            {/* <div className="row col-md-12 justify-content-center">
+            <div className="row col-md-12 justify-content-center">
                 <CustomPagination
                     current={page}
                     total={totalPages}
                     onPageChange={handlePageChange}
                 />
-            </div> */}
+            </div> 
 
         </div>
     )
