@@ -1,0 +1,15 @@
+.card-image-row {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    padding: 10px;
+}
+
+.card-image {
+    height: 200px;
+    width: 250px;
+}
+
+.card-title-custom {
+    margin-top: 15px;
+}
