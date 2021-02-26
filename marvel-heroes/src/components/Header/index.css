@@ -2,3 +2,7 @@
     max-width: 130px;
     float: right;
 }
+
+.profile-drop { 
+    background-color: transparent;
+}

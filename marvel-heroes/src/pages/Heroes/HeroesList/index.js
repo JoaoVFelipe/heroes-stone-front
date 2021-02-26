@@ -3,6 +3,8 @@ import CustomPagination  from '../../../components/CustomPagination';
 import CustomCard from '../../../components/CustomCard';
 import Header from '../../../components/Header';
 import { getAllChars } from '../../../services/marvelAPI';
+import { Button, Form, FormControl } from 'react-bootstrap';
+import PageTitle from '../../../components/PageTitle';
 
 const HeroesList = () => {
     const [chars, setChars] = useState([]);
@@ -33,9 +35,8 @@ const HeroesList = () => {
     return (
         <div>
             <Header showMenu></Header>
-            <h2>
-                All Heroes!
-            </h2>
+            <PageTitle title="All Heroes!"></PageTitle>
+           
             <div className="row col-md-12 justify-content-center content">
                 {
                     chars.map((charCol, index) => {

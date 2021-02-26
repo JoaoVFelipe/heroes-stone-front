@@ -1,4 +1,5 @@
 import React from 'react';
+import { Dropdown, Nav, Navbar, DropdownButton } from 'react-bootstrap';
 import './index.css';
 
 
@@ -19,11 +20,28 @@ const Header = (props) => {
                 </div>
                 
                 {props.showMenu && (
-                    <ul className="header">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/stuff">Stuff</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                    </ul>
+                    <Navbar bg="dark" variant="dark" expand="lg">
+                    <Navbar.Collapse id="basic-navbar-nav">
+                      <Nav className="mr-auto">
+                        <Nav.Link href="/home">Home</Nav.Link>
+                        <Nav.Link href="/heroes">Heroes</Nav.Link>
+                        <Nav.Link href="/comics">Comics</Nav.Link>
+                      </Nav>
+                        <DropdownButton title="João Vitor" className="profile-drop" menuAlign={{ lg: 'right' }} id="dropdown-menu-align-responsive-1" variant="secondary">
+                            <Dropdown.Item disabled href="#action/3.1">Hello João Vitor!</Dropdown.Item>
+                            <Dropdown.Item href="#action/3.1">My Profile</Dropdown.Item>
+                            <Dropdown.Divider />
+                            <Dropdown.Item href="#action/3.2">Logout</Dropdown.Item>
+                        </DropdownButton>
+                    </Navbar.Collapse>
+                  </Navbar>
+                    // <ul className="header">
+                    //     <li><a href="/">Home</a></li>
+                    //     <li><a href="/heroes">Heroes</a></li>
+                    //     <li><a href="/comics">Comics</a></li>
+
+                    //     <Image src="holder.js/171x180" roundedCircle className="float-right"/>
+                    // </ul>
                 )}
 
             </div>

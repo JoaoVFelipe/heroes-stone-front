@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CustomCard from '../../../components/CustomCard';
+import Header from '../../../components/Header';
 import { getComicsByChar, getOneChar } from '../../../services/marvelAPI';
 import './index.css';
 
@@ -19,7 +20,7 @@ const HeroDetail = () => {
     useEffect(() => {
         if(heroDetail) {
             getComicsByChar(id).then(({ data }) => {
-                setComics(chunkArray(data.data.results, 5));
+                setComics(chunkArray(data.data.results, 4));
             });
         }
     }, [heroDetail]);
@@ -34,6 +35,7 @@ const HeroDetail = () => {
 
     return (
         <div>
+            <Header showMenu></Header>
 
             <div className="row col-md-12 ml-0 justify-content-center content">
                 <div className="row col-md-12 justify-content-center ml-0 mb-3">
@@ -57,7 +59,7 @@ const HeroDetail = () => {
                         {
                             comics?.map((comicsCol, index) => {
                                 return (
-                                    <div className="row justify-content-center col-md-12 mt-2 mb-2">
+                                    <div className="row justify-content-center col-md-12 mt-2 mb-2 p-0">
                                         {comicsCol.map((comic) => {
                                             return (
                                                 <div className="ml-2 mr-2">
