@@ -19,12 +19,12 @@ const CustomCard = (props) => {
                         <div className="row col-md-12">
                             <div className="col-md-10">
                                 <Card.Title className="card-title-custom"> 
-                                    <Link to={props.titleUrl}> {props.title} </Link>
+                                    <Link to={props.titleUrl} className="card-link"> {props.title} </Link>
                                 
                                 </Card.Title> 
                             </div>
                             <div className="col-md-2">
-                                <FavoriteButton isFavorite={true} > </FavoriteButton> 
+                                <FavoriteButton isFavorite > </FavoriteButton> 
                             </div>
                         </div>
                     

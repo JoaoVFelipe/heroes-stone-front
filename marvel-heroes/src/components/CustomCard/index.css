@@ -13,3 +13,12 @@
 .card-title-custom {
     margin-top: 15px;
 }
+
+.card-link {
+    display: block;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 15px;
+}
