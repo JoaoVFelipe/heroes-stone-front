@@ -15,7 +15,7 @@ const Header = (props) => {
                         </h1>
                     </div>  
                     <div className="col-md-2"> 
-                        <img src="./marvel-logo.png" className="marvel-logo"></img>
+                        <img src="./marvel-logo.png" alt="Marvel logo" className="marvel-logo"></img>
                     </div>  
                 </div>
                 
@@ -23,7 +23,7 @@ const Header = (props) => {
                     <Navbar bg="dark" variant="dark" expand="lg">
                     <Navbar.Collapse id="basic-navbar-nav">
                       <Nav className="mr-auto">
-                        <Nav.Link href="/home">Home</Nav.Link>
+                        <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/heroes">Heroes</Nav.Link>
                         <Nav.Link href="/comics">Comics</Nav.Link>
                       </Nav>

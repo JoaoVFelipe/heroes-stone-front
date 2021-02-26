@@ -1,11 +1,13 @@
 
 import React from 'react';
+import Header from '../../components/Header';
 
-const Home = () => (
-    <div>
-        Home works!
-    </div>
-
-);
+const Home = () => {
+    return (
+        <div>
+            <Header showMenu></Header>
+        </div>
+    )
+}
 
 export default Home;

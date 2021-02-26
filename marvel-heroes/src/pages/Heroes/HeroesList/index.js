@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import CustomPagination  from '../../../components/CustomPagination';
 import CustomCard from '../../../components/CustomCard';
 import Header from '../../../components/Header';
-import { getAllChars } from '../../../services/marvelAPI';
-import { Button, Form, FormControl } from 'react-bootstrap';
 import PageTitle from '../../../components/PageTitle';
+
+import { getAllChars } from '../../../services/marvelAPI';
 
 const HeroesList = () => {
     const [chars, setChars] = useState([]);
@@ -22,6 +22,7 @@ const HeroesList = () => {
     }, [page]);
 
     const handlePageChange = (page) => {
+        console.log("entrando aqui com page", 2)
         setPage(page);
     };
     
@@ -50,7 +51,7 @@ const HeroesList = () => {
                                                 titleUrl={`heroes/${char.id}`}
                                                 description={char.description}
                                                 imgSrc={char.thumbnail.path + '.' + char.thumbnail.extension}
-                                                imgWidth={'260px'}    
+                                                imgWidth={'240px'}    
                                             >
                                             </CustomCard>
                                         </div>

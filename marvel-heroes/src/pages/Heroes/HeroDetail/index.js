@@ -55,6 +55,8 @@ const HeroDetail = () => {
                     <h2>
                         Appears in: 
                     </h2>
+                    <hr />
+
                     <div className="row col-md-12 justify-content-center content">
                         {
                             comics?.map((comicsCol, index) => {
@@ -62,7 +64,7 @@ const HeroDetail = () => {
                                     <div className="row justify-content-center col-md-12 mt-2 mb-2 p-0">
                                         {comicsCol.map((comic) => {
                                             return (
-                                                <div className="ml-2 mr-2">
+                                                <div className="ml-2 mr-2" key={comic.id}>
                                                     <CustomCard
                                                         title={comic.title}
                                                         titleUrl={`comics/${comic.id}`}

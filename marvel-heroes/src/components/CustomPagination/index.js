@@ -1,19 +1,19 @@
 // react
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pagination } from 'react-bootstrap';
 
 const CustomPagination = (props) => {
     const [items, setItems] = useState([]);
-    const { total, current, onPageChange } = props;
+    const { onPageChange, total, current } = props;
 
     const setPage = (value) => {
       if (value < 1 || value > total || value === current) {
           return;
       }
-      if (onPageChange) {
-          onPageChange(value);
-      }
-  };
+        if (onPageChange) {
+            onPageChange(value);
+        }
+    };
 
     useEffect(() => {
       const aux = [];
@@ -43,7 +43,7 @@ const CustomPagination = (props) => {
       setItems(aux);
 
       
-    }, [current])
+    }, [current, total])
     
 
     return (<Pagination>{items}</Pagination>)

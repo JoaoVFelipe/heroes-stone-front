@@ -8,7 +8,7 @@ const CustomCard = (props) => {
 
     return (
         <React.Fragment >
-            <Card style={{ width: '18rem', height: '300px' }} >
+            <Card style={{ width: '17rem', height: '300px' }} >
                 <div>
                     <div className="row col-md-12 justify-content-center p-0 m-0">
                         <div className="card-image-row" style={{ width: props.imgWidth || '100%'}}>
