@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dropdown, Nav, Navbar, DropdownButton } from 'react-bootstrap';
-import './index.css';
+import './index.scss';
 
 
 const Header = (props) => {
@@ -8,19 +8,17 @@ const Header = (props) => {
     return (
         <React.Fragment >
             <div> 
-                <div className="row col-md-12"> 
-                    <div className="col-md-10">
-                        <h1>
-                            My Marvel Universe
-                        </h1>
+                <div className="row col-md-12 p-0 m-0 mb-3"> 
+                    <div className="col-md-10 p-0 m-0">
+                    
                     </div>  
-                    <div className="col-md-2"> 
+                    <div className="col-md-2 p-0 m-0"> 
                         <img src="./marvel-logo.png" alt="Marvel logo" className="marvel-logo"></img>
                     </div>  
                 </div>
                 
                 {props.showMenu && (
-                    <Navbar bg="dark" variant="dark" expand="lg">
+                    <Navbar variant="dark" expand="lg" className="menu-back text-center">
                     <Navbar.Collapse id="basic-navbar-nav">
                       <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>
@@ -35,13 +33,6 @@ const Header = (props) => {
                         </DropdownButton>
                     </Navbar.Collapse>
                   </Navbar>
-                    // <ul className="header">
-                    //     <li><a href="/">Home</a></li>
-                    //     <li><a href="/heroes">Heroes</a></li>
-                    //     <li><a href="/comics">Comics</a></li>
-
-                    //     <Image src="holder.js/171x180" roundedCircle className="float-right"/>
-                    // </ul>
                 )}
 
             </div>

@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom';
 import CustomCard from '../../../components/CustomCard';
 import Header from '../../../components/Header';
 import { getComicsByChar, getOneChar } from '../../../services/marvelAPI';
-import './index.css';
-
+import './index.scss';
 
 const HeroDetail = () => {
     const { id } = useParams();

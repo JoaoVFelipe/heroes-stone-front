@@ -9,21 +9,26 @@ import { getAllChars } from '../../../services/marvelAPI';
 const HeroesList = () => {
     const [chars, setChars] = useState([]);
     const [page, setPage] = useState(1);
+    const [search, setSearch] = useState(null);
     const [limit, setLimit] = useState(20);
     const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
         const offset = (page - 1) * limit;
-        getAllChars({offset, limit}).then(({ data }) => {
-            setChars(chunkArray(data.data.results, 4));
+        const searchBy = (search && search != '' ? search : null)
+        getAllChars({offset, limit, nameStartsWith: searchBy}).then(({ data }) => {
+            setChars(chunkArray(data.data.results, 5));
             setTotalPages(Math.ceil(data.data.total / data.data.limit));
-            console.log("TOTAL", Math.ceil(data.data.total / data.data.limit))
         });
-    }, [page]);
+    }, [page, limit, search]);
 
     const handlePageChange = (page) => {
-        console.log("entrando aqui com page", 2)
         setPage(page);
+    };
+
+    const handleSearchChange = (searchText) => {
+        setPage(1);
+        setSearch(searchText);
     };
     
     const chunkArray = (arr, chunkSize = 1, cache = []) => {
@@ -36,7 +41,7 @@ const HeroesList = () => {
     return (
         <div>
             <Header showMenu></Header>
-            <PageTitle title="All Heroes!"></PageTitle>
+            <PageTitle title={(search && search != '') ? `Searching by: '${search}'` : "All Heroes!"} onSearchChange={handleSearchChange}></PageTitle>
            
             <div className="row col-md-12 justify-content-center content">
                 {
@@ -51,7 +56,7 @@ const HeroesList = () => {
                                                 titleUrl={`heroes/${char.id}`}
                                                 description={char.description}
                                                 imgSrc={char.thumbnail.path + '.' + char.thumbnail.extension}
-                                                imgWidth={'240px'}    
+                                                imgWidth={'200px'}    
                                             >
                                             </CustomCard>
                                         </div>

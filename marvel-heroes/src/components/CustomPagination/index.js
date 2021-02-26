@@ -1,6 +1,7 @@
 // react
 import React, { useEffect, useState } from 'react';
 import { Pagination } from 'react-bootstrap';
+import './index.scss';
 
 const CustomPagination = (props) => {
     const [items, setItems] = useState([]);
@@ -25,7 +26,11 @@ const CustomPagination = (props) => {
         );
       }
      
-      for (let number = (current - 2 > 0 ? current - 2 : 1); number <= (current + 2); number++) {
+      for (
+        let number = (current - 2 > 0 ? current - 2 : 1); 
+        number <= (current + 2 < total ? current + 2 : current + (total - current)); 
+        number++
+      ) {
           aux.push(
             <Pagination.Item key={number} active={number === current} onClick={() => setPage(number)}>
               {number}

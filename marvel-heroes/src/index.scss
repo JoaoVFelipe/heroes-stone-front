@@ -1,0 +1,34 @@
+code {
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+body {
+  background-color: rgb(67, 67, 67) !important;
+  color: white !important;
+
+  padding: 20px;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+h1, h2, p, ul, li, a, .row {
+  font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+.content {
+  padding: 20px;
+  align-items: center;
+}
+
+.content h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.content li {
+  margin-bottom: 10px;
+}
