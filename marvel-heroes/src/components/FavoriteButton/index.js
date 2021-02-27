@@ -1,5 +1,8 @@
 import React from 'react';
 import './index.scss';
+import Cookies from 'universal-cookie';
+import history from '../../services/history';
+import Swal from 'sweetalert2';
 
 const FavoriteButton = (props) => {
     // Credits to Robeen - http://robeen.io - I used his favorite button component to give some life to the card :)
@@ -7,7 +10,21 @@ const FavoriteButton = (props) => {
     const { onFavoriteChange } = props;
 
     const changeFavorite = (e) => {
-        onFavoriteChange(e.target.checked)
+        const userData = JSON.parse(localStorage.getItem('currentUser'));
+        const cookies = new Cookies(document.cookie);
+
+        if(userData) {
+            onFavoriteChange(e.target.checked)
+        } else {
+            cookies.remove('jwt_auth', { path: '/' });
+            Swal.fire({
+                icon: 'error',
+                title: 'Ops...',
+                text: 'You need to login in order to favorite!'
+              })
+            history.push('/login');
+
+        }
     }
 
     return (

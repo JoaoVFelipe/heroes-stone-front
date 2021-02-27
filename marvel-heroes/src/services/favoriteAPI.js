@@ -1,7 +1,6 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
-
 const api = axios.create();
 const cookies = new Cookies(document.cookie);
 

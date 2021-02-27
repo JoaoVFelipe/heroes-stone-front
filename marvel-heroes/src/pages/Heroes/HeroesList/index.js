@@ -30,7 +30,6 @@ const HeroesList = () => {
         const searchBy = (search && search != '' ? search : null);
 
         getAllChars({offset, limit, nameStartsWith: searchBy}).then(({ data }) => {
-
             if (data.data.results) {
                 const chars = data.data.results;
 
@@ -43,7 +42,6 @@ const HeroesList = () => {
                 }
                 setChars(chunkArray(chars, 5));
             }
-
             setTotalPages(Math.ceil(data.data.total / data.data.limit));
         });
     }, [page, limit, search, favoriteList]);
