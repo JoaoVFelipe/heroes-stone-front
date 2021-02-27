@@ -15,42 +15,42 @@ const api = axios.create();
 
 export async function getAllChars(customParams) {
     return await api.get(
-        `http://gateway.marvel.com/v1/public/characters`, 
+        `https://gateway.marvel.com/v1/public/characters`, 
         { params: {...params, ...customParams} }
     );
 }
 
 export async function getOneChar(id) {
     return await api.get(
-        `http://gateway.marvel.com/v1/public/characters/${id}`, 
+        `https://gateway.marvel.com/v1/public/characters/${id}`, 
         { params }
     );
 }
 
 export async function getComicsByChar(id, customParams) {
     return await api.get(
-        `http://gateway.marvel.com/v1/public/characters/${id}/comics`, 
+        `https://gateway.marvel.com/v1/public/characters/${id}/comics`, 
         { params: {...params, ...customParams} }
     );
 }
 
 export async function getAllComics(customParams) {
     return await api.get(
-        `http://gateway.marvel.com/v1/public/comics`, 
+        `https://gateway.marvel.com/v1/public/comics`, 
         { params: {...params, ...customParams} }
     );
 }
 
 export async function getOneComic(id) {
     return await api.get(
-        `http://gateway.marvel.com/v1/public/comics/${id}`, 
+        `https://gateway.marvel.com/v1/public/comics/${id}`, 
         { params }
     );
 }
 
 export async function getCharsByComic(id, customParams) {
     return await api.get(
-        `http://gateway.marvel.com/v1/public/comics/${id}/characters`, 
+        `https://gateway.marvel.com/v1/public/comics/${id}/characters`, 
         { params: {...params, ...customParams} }
     );
 }
