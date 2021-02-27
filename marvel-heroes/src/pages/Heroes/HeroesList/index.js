@@ -41,7 +41,7 @@ const HeroesList = () => {
     return (
         <div>
             <Header showMenu></Header>
-            <PageTitle title={(search && search != '') ? `Searching by: '${search}'` : "All Heroes!"} onSearchChange={handleSearchChange}></PageTitle>
+            <PageTitle title={(search && search != '') ? `Searching by: '${search}'` : "All Characters!"} onSearchChange={handleSearchChange}></PageTitle>
            
             <div className="row col-md-12 justify-content-center content">
                 {

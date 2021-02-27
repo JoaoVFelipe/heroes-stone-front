@@ -27,26 +27,31 @@ export async function getOneChar(id) {
     );
 }
 
-export async function getComicsByChar(id) {
+export async function getComicsByChar(id, customParams) {
     return await api.get(
         `http://gateway.marvel.com/v1/public/characters/${id}/comics`, 
-        { params }
+        { params: {...params, ...customParams} }
     );
 }
 
-export async function getAllComics() {
+export async function getAllComics(customParams) {
     return await api.get(
         `http://gateway.marvel.com/v1/public/comics`, 
-        { params }
+        { params: {...params, ...customParams} }
     );
 }
-
-
 
 export async function getOneComic(id) {
     return await api.get(
         `http://gateway.marvel.com/v1/public/comics/${id}`, 
         { params }
+    );
+}
+
+export async function getCharsByComic(id, customParams) {
+    return await api.get(
+        `http://gateway.marvel.com/v1/public/comics/${id}/characters`, 
+        { params: {...params, ...customParams} }
     );
 }
 

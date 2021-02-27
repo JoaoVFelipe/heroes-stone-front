@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dropdown, Nav, Navbar, DropdownButton } from 'react-bootstrap';
+import HeaderUser from '../HeaderUser';
 import './index.scss';
 
 
@@ -13,7 +14,7 @@ const Header = (props) => {
                     
                     </div>  
                     <div className="col-md-2 p-0 m-0"> 
-                        <img src="./marvel-logo.png" alt="Marvel logo" className="marvel-logo"></img>
+                        <img src="/marvel-logo.png" alt="Marvel logo" className="marvel-logo"></img>
                     </div>  
                 </div>
                 
@@ -22,15 +23,10 @@ const Header = (props) => {
                     <Navbar.Collapse id="basic-navbar-nav">
                       <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/heroes">Heroes</Nav.Link>
+                        <Nav.Link href="/heroes">Characters</Nav.Link>
                         <Nav.Link href="/comics">Comics</Nav.Link>
                       </Nav>
-                        <DropdownButton title="João Vitor" className="profile-drop" menuAlign={{ lg: 'right' }} id="dropdown-menu-align-responsive-1" variant="secondary">
-                            <Dropdown.Item disabled href="#action/3.1">Hello João Vitor!</Dropdown.Item>
-                            <Dropdown.Item href="#action/3.1">My Profile</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item href="#action/3.2">Logout</Dropdown.Item>
-                        </DropdownButton>
+                        <HeaderUser></HeaderUser>
                     </Navbar.Collapse>
                   </Navbar>
                 )}
