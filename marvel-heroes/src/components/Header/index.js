@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, Nav, Navbar, DropdownButton } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import HeaderUser from '../HeaderUser';
 import './index.scss';
 

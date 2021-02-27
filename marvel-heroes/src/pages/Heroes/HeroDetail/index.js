@@ -82,7 +82,7 @@ const HeroDetail = () => {
                                                             title={comic.title}
                                                             titleUrl={`comics/${comic.id}`}
                                                             imgSrc={comic.thumbnail?.path + '.' + comic.thumbnail?.extension}
-                                                            imgWidth={'170px'}>
+                                                            imgWidth={'190px'}>
                                                         </CustomCard>
                                                     </div>
                                                 )
