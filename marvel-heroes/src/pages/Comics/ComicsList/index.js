@@ -5,7 +5,7 @@ import Header from '../../../components/Header';
 import PageTitle from '../../../components/PageTitle';
 
 import { getAllComics } from '../../../services/marvelAPI';
-import { favoriteOneComic, unfavoriteOneComic } from '../../../services/favoriteAPI';
+import { favoriteOneComic, getAllFavoriteComics, unfavoriteOneComic } from '../../../services/favoriteAPI';
 import Swal from 'sweetalert2';
 
 const ComicList = () => {
@@ -17,22 +17,30 @@ const ComicList = () => {
     const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
+        getAllFavoriteComics().then(({ data }) => {
+            setFavoriteList(data);
+        }).catch((error) => {
+            setFavoriteList([]);
+        });
+    }, []);
+
+    useEffect(() => {
         const offset = (page - 1) * limit;
         const searchBy = (search && search != '' ? search : null);
 
         getAllComics({offset, limit, titleStartsWith: searchBy}).then(({ data }) => {
             const comics = data.data.results
             if (favoriteList.length) {
-                comics.map((char) => {
-                    const isFavorite = favoriteList.find((favorite) => favorite.charId == char.id);
-                    char.isFavorite = isFavorite ? true : false;
-                    return char;
+                comics.map((comic) => {
+                    const isFavorite = favoriteList.find((favorite) => favorite.comicId === comic.id);
+                    comic.isFavorite = isFavorite ? true : false;
+                    return comic;
                 });
             }
             setComics(chunkArray(comics, 6));
             setTotalPages(Math.ceil(data.data.total / data.data.limit));
         });
-    }, [page, limit, search]);
+    }, [page, limit, search, favoriteList]);
 
     const handlePageChange = (page) => {
         setPage(page);
@@ -83,7 +91,7 @@ const ComicList = () => {
                             <div className="row justify-content-center col-md-12 mt-2 mb-2">
                                 {comicCol.map((comic) => {
                                     return (
-                                        <div className="ml-2 mr-2">
+                                        <div className="ml-2 mr-2"  key={comic.id}>
                                             <CustomCard
                                                 id={comic.id}
                                                 title={comic.title}
@@ -92,6 +100,8 @@ const ComicList = () => {
                                                 description={comic.description}
                                                 imgSrc={comic.thumbnail.path + '.' + comic.thumbnail.extension}
                                                 imgWidth={'190px'}    
+                                                isFavorite={comic.isFavorite}
+
                                                 handleFavoriteChange={handleFavoriteChange}
                                             >
                                             </CustomCard>

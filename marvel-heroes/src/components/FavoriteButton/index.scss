@@ -18,7 +18,7 @@ svg {
 .checkbox:checked+label svg {
     #heart {
         transform: scale(.2);
-        fill: #E2264D;
+        fill: #e62429;
         animation: animateHeart .3s linear forwards .25s;
     }
     #main-circ {
@@ -154,44 +154,44 @@ svg {
     40% {
         transform: scale(10);
         opacity: 1;
-        fill: #DD4688;
+        fill: #6b2b2e;
     }
     55% {
         transform: scale(11);
         opacity: 1;
-        fill: #D46ABF;
+        fill: #bf1d22;
     }
     65% {
         transform: scale(12);
         opacity: 1;
-        fill: #CC8EF5;
+        fill: #5f3031;
     }
     75% {
         transform: scale(13);
         opacity: 1;
         fill: transparent;
-        stroke: #CC8EF5;
+        stroke: #c45054;
         stroke-width: .5;
     }
     85% {
         transform: scale(17);
         opacity: 1;
         fill: transparent;
-        stroke: #CC8EF5;
+        stroke: #e62429;
         stroke-width: .2;
     }
     95% {
         transform: scale(18);
         opacity: 1;
         fill: transparent;
-        stroke: #CC8EF5;
+        stroke: #e62429;
         stroke-width: .1;
     }
     100% {
         transform: scale(19);
         opacity: 1;
         fill: transparent;
-        stroke: #CC8EF5;
+        stroke: #e62429;
         stroke-width: 0;
     }
 }

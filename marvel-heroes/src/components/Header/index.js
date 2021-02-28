@@ -1,6 +1,8 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import HeaderUser from '../HeaderUser';
+import history from '../../services/history';
+
 import './index.scss';
 
 
@@ -10,7 +12,7 @@ const Header = (props) => {
         <React.Fragment >
             <div> 
                 <div className="row col-md-12 p-0 m-0 mb-3"> 
-                    <img src="/marvel-logo.png" alt="Marvel logo" className="marvel-logo"></img>
+                    <img src="/marvel-logo.png" alt="Marvel logo" className="marvel-logo"onClick={() => {history.push('/')}}></img>
                 </div>
                 
                 {props.showMenu && (

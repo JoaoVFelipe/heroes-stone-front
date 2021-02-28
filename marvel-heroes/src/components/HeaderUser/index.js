@@ -26,8 +26,8 @@ const HeaderUser = (props) => {
         <React.Fragment >
             {userData ? (
                 <DropdownButton title={userData.name} className="profile-drop" menuAlign={{ lg: 'right' }} id="dropdown-menu-align-responsive-1" variant="secondary">
-                    <Dropdown.Item disabled href="#action/3.1">Hello {userData.name}!</Dropdown.Item>
-                    <Dropdown.Item href="#action/3.1">My Profile</Dropdown.Item>
+                    <Dropdown.Item disabled>Hello {userData.name}!</Dropdown.Item>
+                    <Dropdown.Item href="/profile">My Profile</Dropdown.Item>
                         <Dropdown.Divider />
                     <Dropdown.Item onClick={() => {logout()}}>Logout</Dropdown.Item>
                 </DropdownButton>

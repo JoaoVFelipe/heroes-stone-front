@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import CustomCard from '../../../components/CustomCard';
 import CustomPagination from '../../../components/CustomPagination';
 import Header from '../../../components/Header';
+import { favoriteOneComic, getAllFavoriteComics, unfavoriteOneComic } from '../../../services/favoriteAPI';
 import { getComicsByChar, getOneChar } from '../../../services/marvelAPI';
 import './index.scss';
 
@@ -10,6 +12,7 @@ const HeroDetail = () => {
     const { id } = useParams();
     const [heroDetail, setHeroDetail] = useState(null);
     const [comics, setComics] = useState([]);
+    const [favoriteList, setFavoriteList] = useState([]);
 
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(24);
@@ -22,19 +25,57 @@ const HeroDetail = () => {
     }, [id]);
 
     useEffect(() => {
+        getAllFavoriteComics().then(({ data }) => {
+            setFavoriteList(data);
+        }).catch((error) => {
+            setFavoriteList([]);
+        });
+    }, []);
+
+
+    useEffect(() => {
         if(heroDetail) {
             const offset = (page - 1) * limit;
 
             getComicsByChar(id, {offset, limit}).then(({ data }) => {
-                setComics(chunkArray(data.data.results, 6));
+                const comics = data.data.results
+                if (favoriteList.length) {
+                    comics.map((comic) => {
+                        const isFavorite = favoriteList.find((favorite) => favorite.comicId == comic.id);
+                        comic.isFavorite = isFavorite ? true : false;
+                        return comic;
+                    });
+                }
+                setComics(chunkArray(comics, 6));
                 setTotalPages(Math.ceil(data.data.total / data.data.limit));
 
             });
         }
-    }, [heroDetail, page, limit]);
+    }, [heroDetail, page, limit, favoriteList]);
 
     const handlePageChange = (page) => {
         setPage(page);
+    };
+
+    const handleFavoriteChange = (favorite, id) => {
+        if(favorite) {
+            favoriteOneComic(id).then(({data}) => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Yay!',
+                    text: 'Comic is now on yout favorites!'
+                  })
+            });
+        } else {
+            unfavoriteOneComic(id).then(({data}) => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Yay!',
+                    text: 'Comic is not on your favorites anymore!'
+                  })
+            });
+
+        }
     };
     
     const chunkArray = (arr, chunkSize = 1, cache = []) => {
@@ -79,10 +120,16 @@ const HeroDetail = () => {
                                                 return (
                                                     <div className="ml-2 mr-2" key={comic.id}>
                                                         <CustomCard
-                                                            title={comic.title}
-                                                            titleUrl={`comics/${comic.id}`}
-                                                            imgSrc={comic.thumbnail?.path + '.' + comic.thumbnail?.extension}
-                                                            imgWidth={'190px'}>
+                                                           id={comic.id}
+                                                           title={comic.title}
+                                                           titleUrl={`comics/${comic.id}`}
+                                                           titleSize={'14px'}
+                                                           description={comic.description}
+                                                           imgSrc={comic.thumbnail.path + '.' + comic.thumbnail.extension}
+                                                           imgWidth={'190px'}    
+                                                           isFavorite={comic.isFavorite}
+                                                           handleFavoriteChange={handleFavoriteChange}
+                                                        >
                                                         </CustomCard>
                                                     </div>
                                                 )
