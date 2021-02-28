@@ -3,10 +3,7 @@
 
 body {
   color: white !important;
-  width: 100%;
-  height: 100%;
   padding: 10px;
-  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -17,6 +14,8 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
+  margin: 0px;
+
 }
 
 h1,
@@ -60,6 +59,8 @@ a,
 .content {
   padding: 20px;
   align-items: center;
+  min-height: 100%;
+  /* igual a altura do rodapé */
 }
 
 .content h2 {
