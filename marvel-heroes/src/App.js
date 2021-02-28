@@ -4,9 +4,12 @@ import Routes from './routes/index';
 import history from './services/history';
 
 const App = () => (
-  <Router  history={history}>
-    <Routes />
-  </Router>
+  <div>
+    <Router history={history}>
+      <Routes />
+    </Router>
+  </div>
+
 );
 
 export default App;

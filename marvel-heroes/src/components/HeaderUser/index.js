@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 import Cookies from 'universal-cookie';
 import history from '../../services/history';
 
+import './index.scss';
+
 const HeaderUser = (props) => {
 
     const cookies = new Cookies(document.cookie);
@@ -30,7 +32,7 @@ const HeaderUser = (props) => {
                     <Dropdown.Item onClick={() => {logout()}}>Logout</Dropdown.Item>
                 </DropdownButton>
             ) : (
-                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link className="profile-drop" href="/login">Login</Nav.Link>
             )}
           
         </React.Fragment>

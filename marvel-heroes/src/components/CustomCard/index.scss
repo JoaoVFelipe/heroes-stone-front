@@ -30,7 +30,6 @@
 
 .card-body{
     background-color: #151515;
-    color: white; 
     border-radius: 0px 0px 25px 0px !important;
     :hover {
         color: #e62429 !important;
@@ -39,6 +38,7 @@
 }
 
 .card-link {
+    color: #FFF; 
     display: block;
     width: 100px;
     overflow: hidden;

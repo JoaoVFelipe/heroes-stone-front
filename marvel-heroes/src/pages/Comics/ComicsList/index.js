@@ -87,7 +87,7 @@ const ComicList = () => {
                                             <CustomCard
                                                 id={comic.id}
                                                 title={comic.title}
-                                                titleUrl={`/comics/${comic.id}`}
+                                                titleUrl={`comics/${comic.id}`}
                                                 titleSize={'14px'}
                                                 description={comic.description}
                                                 imgSrc={comic.thumbnail.path + '.' + comic.thumbnail.extension}

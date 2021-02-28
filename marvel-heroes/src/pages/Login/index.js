@@ -29,8 +29,7 @@ const Login = () => {
     }
 
     return (
-        <div className="main" >
-            <div className="bg" style={{ backgroundImage: `url(/marvel-background.png)` }}></div>
+        <div className="login" >
              <div className="row col-md-12 justify-content-center">
                 <p className="sign" align="center">Enter on your Marvel Universe!</p>
              </div>
