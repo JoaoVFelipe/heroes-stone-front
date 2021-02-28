@@ -1,7 +1,7 @@
 # heroes-stone-front
 
 This repository contains the frontend of the application "My Marvel® Universe", created for the Fullstack Developer technical test at [Stone](https://www.stone.com.br/).
-You can access the hosted applicattion [here](https://heroes-stone-front.herokuapp.com/)
+You can access the hosted applicattion [here](https://heroes-stone-front.herokuapp.com/).
 
 ### About - My Marvel® Universe
   
