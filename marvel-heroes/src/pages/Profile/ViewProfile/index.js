@@ -64,7 +64,7 @@ const ViewProfile = () => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Yay!',
-                    text: 'Character is now on yout favorites!'
+                    text: 'Character is now on your favorites!'
                   })
             });
         } else {
@@ -85,7 +85,7 @@ const ViewProfile = () => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Yay!',
-                    text: 'Comic is now on yout favorites!'
+                    text: 'Comic is now on your favorites!'
                   })
             });
         } else {

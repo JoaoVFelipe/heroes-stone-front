@@ -63,7 +63,7 @@ const HeroDetail = () => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Yay!',
-                    text: 'Comic is now on yout favorites!'
+                    text: 'Comic is now on your favorites!'
                   })
             });
         } else {

@@ -52,7 +52,7 @@ const HeroesList = () => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Yay!',
-                    text: 'Character is now on yout favorites!'
+                    text: 'Character is now on your favorites!'
                   })
             });
         } else {
